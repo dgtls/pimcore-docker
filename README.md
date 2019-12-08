@@ -22,7 +22,7 @@ To see available tags for a repo use
 ### How to use for building applications ###
 Our docker hub is located at 144.76.62.83:5000.
 
-#####For LINUX / Ubuntu (recommended):
+##### For LINUX / Ubuntu (recommended):
 Create or update the file /etc/docker/daemon.json with following content:
 ```
 {
@@ -30,7 +30,7 @@ Create or update the file /etc/docker/daemon.json with following content:
 }
 ```
 
-#####For MAC:
+##### For MAC:
 In order to use the registry on mac you must first add this as an insecure registry:
 Docker for Mac menubar icon -> Preferences -> Advanced -> add "144.76.62.83:5000" as an insecure registry.
 
