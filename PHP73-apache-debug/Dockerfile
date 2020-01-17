@@ -57,7 +57,8 @@ RUN docker-php-ext-install \
     bcmath \
     sockets \
     intl \
-    simplexml
+    simplexml \
+    soap
 
 RUN yes | pecl install igbinary && docker-php-ext-enable igbinary
 RUN yes | pecl install xdebug && docker-php-ext-enable xdebug
