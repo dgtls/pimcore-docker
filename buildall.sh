@@ -9,13 +9,13 @@ for V in "${IMAGES[@]}";
   do
     echo $V
     _imagePath=${IMAGE_PATHS[$V]}
-    cd ${_cwd}/${_imagePath};
+    cd ${_BASEPATH}/${_imagePath};
 
     echo "$PWD"
 
     for tag in {$VERSION,latest}; do
       echo "$HUB:$V:$tag"
-      docker push "$HUB/$V:$tag"
+      docker build -t "$HUB/$V:$tag" .
     done
 
     echo ""
