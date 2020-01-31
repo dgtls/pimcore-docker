@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     wget \
     unzip \
+    vim \
     nano \
     sudo \
     supervisor \
@@ -83,7 +84,8 @@ COPY /etc/default-ssl.conf /etc/apache2/sites-enabled/
 COPY /etc/ssl.crt /etc/ssl/crt/
 COPY /etc/ssl.key /etc/ssl/crt/
 
-COPY /etc/xdebug.sh /usr/local/bin/xdebug.sh
+COPY /etc/xon.sh /usr/local/bin/xon.sh
+COPY /etc/xoff.sh /usr/local/bin/xoff.sh
 COPY /etc/custom.php.ini /usr/local/etc/php/conf.d/custom.php.ini
 
 WORKDIR "/var/www"
