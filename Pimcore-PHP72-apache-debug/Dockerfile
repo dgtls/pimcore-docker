@@ -1,4 +1,4 @@
-FROM 144.76.62.83:5000/php72apachedebug:latest
+FROM dockerhub.dgtls.com:5000/php72apachedebug:latest
 
 RUN mkdir -p /usr/share/man/man1
 
