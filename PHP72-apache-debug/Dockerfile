@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     libzip-dev \
     libzstd-dev \
+    libxslt-dev \
     wget \
     unzip \
     vim \
@@ -52,7 +53,8 @@ RUN docker-php-ext-install \
     sockets \
     intl \
     simplexml \
-    soap
+    soap \
+    xsl
 
 RUN yes | pecl install igbinary && docker-php-ext-enable igbinary
 RUN yes | pecl install xdebug && docker-php-ext-enable xdebug
