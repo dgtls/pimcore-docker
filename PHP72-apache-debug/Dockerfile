@@ -69,8 +69,14 @@ RUN docker-php-ext-install gd && \
 
 RUN a2enmod rewrite actions alias status filter expires headers setenvif socache_shmcb ssl
 
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && php composer-setup.php --install-dir=/usr/local/bin && php -r "unlink('composer-setup.php');" \
-    && mv /usr/local/bin/composer.phar /usr/local/bin/composer
+ENV COMPOSER_ALLOW_SUPERUSER 1
+ENV COMPOSER_MEMORY_LIMIT -1
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+RUN set -eux; \
+    composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress --no-suggest --classmap-authoritative; \
+    composer clear-cache
+ENV PATH="${PATH}:/root/.composer/vendor/bin"
 
 RUN echo "umask 000" >> /root/.bashrc && usermod -a -G root www-data && chsh www-data -s /bin/bash
 

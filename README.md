@@ -38,7 +38,7 @@ Docker for MAC menubar icon -> preferences -> advanced -> add "dockerhub.dgtls.c
 
 When setting up an application and you want to use docker-compose, just use this registry and repo as the base image, for example:
 
-Instead of `FROM php:73-apache` just write `FROM dockerhub.dgtls.com:5000/pimcorephp73apachedebug:latest`
+Instead of `FROM php:74-apache` just write `FROM dockerhub.dgtls.com:5000/pimcorephp74apachedebug:latest`
 
 That's it.
 
