@@ -5,4 +5,11 @@ then
     rm /usr/local/etc/php/conf.d/xdebug.ini
 fi
 
+if [ ! -f /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini ]; then
+    echo "Could not locate config file. Is xdebug enabled ?"
+    exit 1
+fi
+
+mv /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini /usr/local/etc/php/docker-php-ext-xdebug.ini.disabled
+
 service apache2 reload

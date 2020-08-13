@@ -39,7 +39,8 @@ RUN apt-get update && apt-get install -y \
     graphviz \
     nodejs \
     npm \
-    libonig-dev
+    libonig-dev \
+    mariadb-client-10.3
 
 RUN docker-php-ext-install \
     mbstring \
@@ -73,6 +74,8 @@ RUN yes | pecl install imagick && docker-php-ext-enable imagick
 RUN docker-php-ext-install gd && \
     docker-php-ext-configure gd --with-freetype --with-webp --with-jpeg \
 	&& docker-php-ext-install -j$(nproc) gd
+
+RUN mv /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini /usr/local/etc/php/docker-php-ext-xdebug.ini.disabled
 
 RUN a2enmod rewrite actions alias status filter expires headers setenvif socache_shmcb ssl
 

@@ -38,7 +38,8 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     graphviz \
     nodejs \
-    npm
+    npm \
+    mariadb-client-10.3
 
 RUN docker-php-ext-install \
     mbstring \
@@ -73,6 +74,8 @@ RUN docker-php-ext-install gd && \
     docker-php-ext-configure gd --with-gd --with-webp-dir --with-jpeg-dir \
         --with-png-dir --with-zlib-dir --with-xpm-dir --with-freetype-dir && \
     docker-php-ext-install gd
+
+RUN mv /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini /usr/local/etc/php/docker-php-ext-xdebug.ini.disabled
 
 RUN a2enmod rewrite actions alias status filter expires headers setenvif socache_shmcb ssl
 
