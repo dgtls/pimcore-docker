@@ -1,4 +1,4 @@
-# Docker Images for Pimcore 5 & 6
+# Docker Images for Pimcore 4, 5 & 6
 
 ### What is this repository for? ###
 
@@ -16,10 +16,13 @@ To see available tags for a repo use
 > http://dockerhub.dgtls.com:5000/v2/{repo}/tags/list
 
 ### Supported versions
-All images based on debian 10 (buster)
- - Apache 2.4 / PHP 7.4 / Xdebug
- - Apache 2.4 / PHP 7.3 / Xdebug
- - Apache 2.4 / PHP 7.2 / Xdebug
+ - Debian 10 (buster) / Apache 2.4 / PHP 7.4 / Xdebug
+ - Debian 10 (buster) / Apache 2.4 / PHP 7.3 / Xdebug
+ - Debian 10 (buster) / Apache 2.4 / PHP 7.2 / Xdebug
+ 
+### Not longer supported versions
+ - Debian 9.9 (stretch) / Apache 2.4.25 / PHP 7.1.30 / Xdebug
+ - Debian 9.6 (stretch) / Apache 2.4.25 / PHP 7.0.33
 
 ### How to use for building applications ###
 Our docker hub is located at dockerhub.dgtls.com:5000.
