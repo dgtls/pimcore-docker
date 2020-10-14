@@ -13,9 +13,9 @@ for V in "${IMAGES[@]}";
 
     echo "$PWD"
 
-    for tag in {$VERSION,latest}; do
+    for tag in {$_VERSION,latest}; do
       echo "$HUB:$V:$tag"
-      docker build --pull -t "$HUB/$V:$tag" .
+      docker build -t "$HUB/$V:$tag" .
     done
 
     echo ""

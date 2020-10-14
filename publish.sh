@@ -13,7 +13,7 @@ for V in "${IMAGES[@]}";
 
     echo "$PWD"
 
-    for tag in {$VERSION,latest}; do
+    for tag in {$_VERSION,latest}; do
       echo "$HUB:$V:$tag"
       docker push "$HUB/$V:$tag"
     done
