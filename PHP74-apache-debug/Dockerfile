@@ -99,4 +99,6 @@ COPY /etc/xon /usr/local/bin/xon
 COPY /etc/xoff /usr/local/bin/xoff
 COPY /etc/custom.php.ini /usr/local/etc/php/conf.d/custom.php.ini
 
+RUN a2disconf javascript-common
+
 WORKDIR "/var/www"
