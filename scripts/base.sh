@@ -22,7 +22,7 @@ function _info  {
 }
 
 echo "Please enter a version number, please follow this link to find out what's the latest released version number:" \
- && echo "http://$HUB/v2/pimcorephp74apachedebug/tags/list";
+ && echo "http://$HUB/v2/pimcorephp80apachedebug/tags/list";
 read _VERSION
 
 if [ -z "$_VERSION" ]

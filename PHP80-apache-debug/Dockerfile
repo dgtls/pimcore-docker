@@ -1,4 +1,6 @@
-FROM php:8.0-rc-apache
+FROM php:8.0.0-apache
+
+ENV IMAGICK_SHA 765649716faf3215b6ffca1b329e6a49aa42b24f
 
 RUN apt-get update && apt-get install -y \
     apt-utils \
@@ -39,7 +41,8 @@ RUN apt-get update && apt-get install -y \
     graphviz \
     nodejs \
     npm \
-    libonig-dev
+    libonig-dev \
+    mariadb-client-10.3
 
 RUN docker-php-ext-install \
     mbstring \
@@ -64,21 +67,28 @@ RUN docker-php-ext-install \
     soap \
     xsl
 
-#RUN yes | docker-php-ext-install igbinary && docker-php-ext-enable igbinary
-RUN yes | docker-php-ext-install xdebug && docker-php-ext-enable xdebug
-RUN yes | docker-php-ext-install apcu && docker-php-ext-enable apcu
-RUN yes | docker-php-ext-install redis && docker-php-ext-enable redis
-RUN yes | docker-php-ext-install imagick && docker-php-ext-enable imagick
+RUN yes | pecl install igbinary && docker-php-ext-enable igbinary
+RUN yes | pecl install xdebug && docker-php-ext-enable xdebug
+RUN yes | pecl install apcu && docker-php-ext-enable apcu
+RUN yes | pecl install redis && docker-php-ext-enable redis
+#RUN yes | pecl install imagick && docker-php-ext-enable imagick
+RUN curl -L -o /tmp/imagick.tar.gz https://github.com/Imagick/imagick/archive/${IMAGICK_SHA}.tar.gz \
+    && tar --strip-components=1 -xf /tmp/imagick.tar.gz \
+    && phpize \
+    && ./configure && make && make install \
+    && docker-php-ext-enable imagick
 
 RUN docker-php-ext-install gd && \
     docker-php-ext-configure gd --with-freetype --with-webp --with-jpeg \
 	&& docker-php-ext-install -j$(nproc) gd
 
+RUN mv /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini /usr/local/etc/php/docker-php-ext-xdebug.ini.disabled
+
 RUN a2enmod rewrite actions alias status filter expires headers setenvif socache_shmcb ssl
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_MEMORY_LIMIT -1
-COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer:1 /usr/bin/composer /usr/local/bin/composer
 
 RUN set -eux; \
     composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress --no-suggest --classmap-authoritative; \

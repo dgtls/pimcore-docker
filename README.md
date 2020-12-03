@@ -1,8 +1,8 @@
-# Docker Images for Pimcore 4, 5 & 6
+# Docker Images for Pimcore 4, 5, 6 & Pimcore X
 
 ### What is this repository for? ###
 
-A list of docker files used for common images, mainly Pimcore 5 and 6.
+A list of docker files used for common images, mainly Pimcore 6 & Pimcore X.
 Using images from this repo should save a lot of time since all extra dependencies will be included within the already built images.
 
 ### Available images
@@ -16,6 +16,7 @@ To see available tags for a repo use
 > http://dockerhub.dgtls.com:5000/v2/{repo}/tags/list
 
 ### Supported versions
+ - Debian 10 (buster) / Apache 2.4 / PHP 8.0 / Xdebug
  - Debian 10 (buster) / Apache 2.4 / PHP 7.4 / Xdebug
  - Debian 10 (buster) / Apache 2.4 / PHP 7.3 / Xdebug
  - Debian 10 (buster) / Apache 2.4 / PHP 7.2 / Xdebug
