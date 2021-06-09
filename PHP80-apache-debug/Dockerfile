@@ -1,4 +1,4 @@
-FROM php:8.0.0-apache
+FROM php:8.0-apache
 
 ENV IMAGICK_SHA 765649716faf3215b6ffca1b329e6a49aa42b24f
 
@@ -88,10 +88,9 @@ RUN a2enmod rewrite actions alias status filter expires headers setenvif socache
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_MEMORY_LIMIT -1
-COPY --from=composer:1 /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 
 RUN set -eux; \
-    composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress --no-suggest --classmap-authoritative; \
     composer clear-cache
 ENV PATH="${PATH}:/root/.composer/vendor/bin"
 
