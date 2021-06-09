@@ -16,37 +16,37 @@ ln -s /bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf
 
 # install pngout
 cd /tmp
-wget https://github.com/imagemin/pngout-bin/raw/master/vendor/linux/x64/pngout -O /usr/local/bin/pngout
+wget https://github.com/imagemin/pngout-bin/tree/main/vendor/linux/x64/pngout -O /usr/local/bin/pngout
 chmod 0755 /usr/local/bin/pngout
 cd /
 
 # install pngcrush
 cd /tmp
-wget https://github.com/imagemin/pngcrush-bin/raw/master/vendor/linux/pngcrush -O /usr/local/bin/pngcrush
+wget https://github.com/imagemin/pngcrush-bin/tree/main/vendor/linux/pngcrush -O /usr/local/bin/pngcrush
 chmod 0755 /usr/local/bin/pngcrush
 cd /
 
 # install jpegoptim
 cd /tmp
-wget https://github.com/imagemin/jpegoptim-bin/raw/master/vendor/linux/jpegoptim -O /usr/local/bin/jpegoptim
+wget https://github.com/imagemin/jpegoptim-bin/tree/main/vendor/linux/jpegoptim -O /usr/local/bin/jpegoptim
 chmod 0755 /usr/local/bin/jpegoptim
 cd /
 
 # install zopflipng
 cd /tmp
-wget https://github.com/imagemin/zopflipng-bin/raw/master/vendor/linux/zopflipng -O /usr/local/bin/zopflipng
+wget https://github.com/imagemin/zopflipng-bin/tree/main/vendor/linux/zopflipng -O /usr/local/bin/zopflipng
 chmod 0755 /usr/local/bin/zopflipng
 cd /
 
 # install advpng
 cd /tmp
-wget https://github.com/imagemin/advpng-bin/raw/master/vendor/linux/advpng -O /usr/local/bin/advpng
+wget https://github.com/imagemin/advpng-bin/tree/main/vendor/linux/advpng -O /usr/local/bin/advpng
 chmod 0755 /usr/local/bin/advpng
 cd /
 
 # install mozjpeg
 cd /tmp
-wget https://github.com/imagemin/mozjpeg-bin/raw/master/vendor/linux/cjpeg -O /usr/local/bin/cjpeg
+wget https://github.com/imagemin/mozjpeg-bin/tree/main/vendor/linux/cjpeg -O /usr/local/bin/cjpeg
 chmod 0755 /usr/local/bin/cjpeg
 cd /
 
